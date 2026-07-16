@@ -5,6 +5,8 @@ const ProjectCard = ({
   ProjectTitle,
   ProjectDescription,
   ProjectSkills,
+  github,
+  LiveDemo,
   onClick
 }) => {
   return (
@@ -19,19 +21,25 @@ const ProjectCard = ({
         <div className='absolute inset-0 bg-gradient-to-t from-surface/70 via-surface/5 to-transparent'></div>
 
         <div className='absolute bottom-5 left-5 text-xs font-bold flex gap-3 opacity-0 translate-y-5 group-hover:opacity-100 group-hover:-translate-y-0 transition-all duration-500'>
-          <button
+          <a
+            href={github}
+            target="_blank"
+            rel="noopener noreferrer"
             onClick={(e) => e.stopPropagation()}
-            className='bg-background px-5 py-2 rounded-xl flex items-center gap-2'
+            className='bg-background px-5 py-2 rounded-xl flex items-center gap-2 hover:scale-105 transition-transform'
           >
             GitHub
-          </button>
+          </a>
 
-          <button
+          <a
+            href={LiveDemo}
+            target="_blank"
+            rel="noopener noreferrer"
             onClick={(e) => e.stopPropagation()}
-            className='bg-primary px-5 py-2 rounded-xl flex items-center gap-2'
+            className='bg-primary px-5 py-2 rounded-xl flex items-center gap-2 hover:scale-105 transition-transform'
           >
             Live Demo
-          </button>
+          </a>
         </div>
       </div>
 

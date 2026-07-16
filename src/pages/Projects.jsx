@@ -2,29 +2,35 @@ import React, { useState } from 'react'
 import Title from '../components/Title'
 import ProjectCard from '../components/ProjectCard'
 import { motion } from 'framer-motion'
-import { container, fadeUp, fadeDown, fadeLeft, fadeRight } from '../components/animations/motionVariants'
+import { container, fadeUp } from '../components/animations/motionVariants'
+import Thumnail from "../assets/Thumnail.png";
+import ImgToPDF from "../assets/ImgToPDF.png";
 
 const Projects = () => {
 
     const [selectedProject, setSelectedProject] = useState(null);
 
     const E_CommersSkills = [
-        "React", "Node.js", "MongoDB", "Express", "Stripe", "Redux"
+        "React", "Node.js", "MongoDB", "Express", "Prisma", "Tailwind Css", "JWT Auth", "REST API"
     ]
 
     const projects = [
         {
-            image: "https://images.unsplash.com/photo-1556740749-887f6717d7e4?w=1200",
+            image: Thumnail,
             title: "E-Commerce Platform",
             description:
                 "Full-stack shopping experience with authentication, cart management, product catalog and Stripe payment integration.",
             skills: E_CommersSkills,
+            github: "https://github.com/santhoshmsi2005/E-commerce-Fullstack",
+            LiveDemo: "https://e-commerce-fullstack-irsf.vercel.app",
         }, {
-            image: "https://images.unsplash.com/photo-1556740749-887f6717d7e4?w=1200",
-            title: "Task Management App",
+            image: ImgToPDF,
+            title: "Img to PDF",
             description:
-                "Organize tasks, manage projects, and collaborate with teams efficiently.",
-            skills: E_CommersSkills,
+                "Img to PDF converter is a web application that allows you to convert images to PDF.",
+            skills: ["HTML", "CSS", "JavaScript", "React", "jspdf", "react-dropzone", "react-hot-toast", "tailwindcss"],
+            github: "https://github.com/santhoshmsi2005/Image-To-PDF",
+            LiveDemo: "https://image-to-pdf-zeta-one.vercel.app/",
         }
     ]
 
@@ -46,6 +52,8 @@ const Projects = () => {
                                 ProjectTitle={project.title}
                                 ProjectDescription={project.description}
                                 ProjectSkills={project.skills}
+                                github={project.github}
+                                LiveDemo={project.LiveDemo}
                                 onClick={() => setSelectedProject(project)}
                             />
                         ))}
@@ -93,12 +101,22 @@ const Projects = () => {
                                     >
                                         Close
                                     </button>
-                                    <button className='mt-6 px-5 py-2 bg-orange-500 rounded-full hover:scale-105 transition-transform duration-500 active:scale-95'>
+                                    <a
+                                        href={selectedProject.github}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className='mt-6 px-5 py-2 bg-orange-500 rounded-full hover:scale-105 transition-transform duration-500 active:scale-95'
+                                    >
                                         GitHub
-                                    </button>
-                                    <button className='mt-6 px-5 py-2 bg-orange-500 rounded-full hover:scale-105 transition-transform duration-500 active:scale-95'>
+                                    </a>
+                                    <a
+                                        href={selectedProject.LiveDemo}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className='mt-6 px-5 py-2 bg-orange-500 rounded-full hover:scale-105 transition-transform duration-500 active:scale-95'
+                                    >
                                         Live Demo
-                                    </button>
+                                    </a>
                                 </div>
                             </div>
                         </div>

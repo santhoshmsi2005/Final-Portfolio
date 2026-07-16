@@ -11,7 +11,9 @@ const PraticePopUp = () => {
             image: "https://images.unsplash.com/photo-1556740749-887f6717d7e4?w=1200",
             ProjectTitle: "E-Commerce Platform",
             ProjectDescription: "Full-stack shopping experience with authentication, cart management, product catalog and Stripe payment integration.",
-            ProjectSkills: ["React", "Node.js", "MongoDB", "Express", "Stripe", "Redux"]
+            ProjectSkills: ["React", "Node.js", "MongoDB", "Express", "Stripe", "Redux"],
+            github:"https://github.com/santhoshmsi2005/E-commerce-Fullstack",
+            LiveDemo:"https://e-commerce-fullstack-irsf.vercel.app",
         }
     ]
 
@@ -25,6 +27,8 @@ const PraticePopUp = () => {
                         ProjectTitle={project.ProjectTitle}
                         ProjectDescription={project.ProjectDescription}
                         ProjectSkills={project.ProjectSkills}
+                        github={project.github}
+                        LiveDemo={project.LiveDemo}
                         onClick={() => setSelectedProject(project)}
                     />
                 )
