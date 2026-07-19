@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Title from '../components/Title'
 import { MdOutlineEmail } from "react-icons/md";
 import { FaPhone } from "react-icons/fa6";
@@ -11,11 +11,21 @@ import { fadeUp, fadeDown, fadeRight, fadeLeft, container } from '../components/
 
 const Contact = () => {
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        window.alert("Message send successfully...")
-        e.target.reset();
-    }
+    const [result, setResult] = useState("");
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        const formData = new FormData(event.target);
+        formData.append("access_key", "1f5868ce-fe82-4da4-be6f-1c357c8bbe87");
+
+        const response = await fetch("https://api.web3forms.com/submit", {
+            method: "POST",
+            body: formData
+        });
+
+        const data = await response.json();
+        setResult(data.success ? "Success!" : "Error");
+    };
 
     return (
         <div>
@@ -33,7 +43,7 @@ const Contact = () => {
 
                     <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2'>
                         {/* Left Side */}
-                        <motion.div variants={fadeLeft(0.5,0.7)} className='flex flex-col gap-10 border rounded-xl border-muted/50 md:border-none p-10'>
+                        <motion.div variants={fadeLeft(0.5, 0.7)} className='flex flex-col gap-10 border rounded-xl border-muted/50 md:border-none p-10'>
                             <h1 className='text-4xl font-bold'>
                                 Let's build something together
                             </h1>
@@ -43,7 +53,7 @@ const Contact = () => {
 
                             <div>
                                 <motion.div variants={container} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} className='flex flex-col gap-3'>
-                                    <motion.div variants={fadeLeft(0.7,0.9)} className='flex items-center gap-4 border border-muted/50 p-4 rounded-xl bg-surface hover:bg-primary/5 cursor-pointer transition-all duration-300 hover:border-primary'>
+                                    <motion.div variants={fadeLeft(0.7, 0.9)} className='flex items-center gap-4 border border-muted/50 p-4 rounded-xl bg-surface hover:bg-primary/5 cursor-pointer transition-all duration-300 hover:border-primary'>
                                         <div className='border p-2 rounded-lg bg-primary/20 text-primary border-primary'>
                                             <MdOutlineEmail />
                                         </div>
@@ -53,7 +63,7 @@ const Contact = () => {
                                         </div>
                                     </motion.div>
 
-                                    <motion.div variants={fadeLeft(0.9,1.1)} className='flex items-center gap-4 border border-muted/50 p-4 rounded-xl bg-surface hover:bg-primary/5 cursor-pointer transition-all duration-300 hover:border-primary'>
+                                    <motion.div variants={fadeLeft(0.9, 1.1)} className='flex items-center gap-4 border border-muted/50 p-4 rounded-xl bg-surface hover:bg-primary/5 cursor-pointer transition-all duration-300 hover:border-primary'>
                                         <div className='border p-2 rounded-lg bg-primary/20 text-primary border-primary'>
                                             <FaPhone />
                                         </div>
@@ -63,7 +73,7 @@ const Contact = () => {
                                         </div>
                                     </motion.div>
 
-                                    <motion.div variants={fadeLeft(1.1,1.3)} className='flex items-center gap-4 border border-muted/50 p-4 rounded-xl bg-surface hover:bg-primary/5 cursor-pointer transition-all duration-300 hover:border-primary'>
+                                    <motion.div variants={fadeLeft(1.1, 1.3)} className='flex items-center gap-4 border border-muted/50 p-4 rounded-xl bg-surface hover:bg-primary/5 cursor-pointer transition-all duration-300 hover:border-primary'>
                                         <div className='border p-2 rounded-lg bg-primary/20 text-primary border-primary'>
                                             <MdLocationOn />
                                         </div>
@@ -77,34 +87,34 @@ const Contact = () => {
                             </div>
 
                             <div className='flex gap-5'>
-                                <motion.div variants={fadeLeft(1.3,1.5)} className='border text-muted hover:text-primary border-muted/50 p-4 rounded-xl bg-surface hover:bg-primary/5 cursor-pointer transition-all duration-300 hover:border-primary text-xl'>
+                                <motion.div variants={fadeLeft(1.3, 1.5)} className='border text-muted hover:text-primary border-muted/50 p-4 rounded-xl bg-surface hover:bg-primary/5 cursor-pointer transition-all duration-300 hover:border-primary text-xl'>
                                     <FaGithub />
                                 </motion.div>
-                                <motion.div variants={fadeLeft(1.5,1.7)} className='border text-muted hover:text-primary border-muted/50 p-4 rounded-xl bg-surface hover:bg-primary/5 cursor-pointer transition-all duration-300 hover:border-primary text-xl'>
+                                <motion.div variants={fadeLeft(1.5, 1.7)} className='border text-muted hover:text-primary border-muted/50 p-4 rounded-xl bg-surface hover:bg-primary/5 cursor-pointer transition-all duration-300 hover:border-primary text-xl'>
                                     <FaLinkedin />
                                 </motion.div>
-                                <motion.div variants={fadeLeft(1.7,1.9)} className='border text-muted hover:text-primary border-muted/50 p-4 rounded-xl bg-surface hover:bg-primary/5 cursor-pointer transition-all duration-300 hover:border-primary text-xl'>
+                                <motion.div variants={fadeLeft(1.7, 1.9)} className='border text-muted hover:text-primary border-muted/50 p-4 rounded-xl bg-surface hover:bg-primary/5 cursor-pointer transition-all duration-300 hover:border-primary text-xl'>
                                     <MdOutlineEmail />
                                 </motion.div>
                             </div>
                         </motion.div>
 
                         {/* Right Side */}
-                        <motion.form variants={fadeRight(0.5,0.7)} onSubmit={handleSubmit} className='flex flex-col p-10 justify-center w-full' >
+                        <motion.form variants={fadeRight(0.5, 0.7)} onSubmit={handleSubmit} className='flex flex-col p-10 justify-center w-full' >
                             <div className='border border-muted/50 p-10 rounded-2xl w-full h-full bg-surface/50 flex flex-col gap-4 shadow-[0_0_30px_8px_rgba(0,0,0,1)]'>
                                 <div className='flex flex-col gap-2'>
                                     <h1 className='text-sm text-muted font-medium'>Full Name</h1>
-                                    <input type="text" placeholder='Your Name' required className='border border-muted/50 w-full px-3 py-3 rounded-lg bg-background focus:outline-none focus:border-primary' />
+                                    <input type="text" name='name' placeholder='Your Name' required className='border border-muted/50 w-full px-3 py-3 rounded-lg bg-background focus:outline-none focus:border-primary' />
                                 </div>
 
                                 <div className='flex flex-col gap-2'>
                                     <h1 className='text-sm text-muted font-medium'>Email Address</h1>
-                                    <input type="email" placeholder='Your Email Address' required className='border border-muted/50 w-full px-3 py-3 rounded-lg bg-background focus:outline-none focus:border-primary' />
+                                    <input type="email" name='email' placeholder='Your Email Address' required className='border border-muted/50 w-full px-3 py-3 rounded-lg bg-background focus:outline-none focus:border-primary' />
                                 </div>
 
                                 <div className='flex flex-col gap-2'>
                                     <h1 className='text-sm text-muted font-medium'>Message</h1>
-                                    <textarea placeholder='Hi Santhosh, I have a project...' required className='border border-muted/50 w-full px-2 py-2 rounded-lg bg-background h-56 focus:outline-none focus:border-primary' />
+                                    <textarea name='message' placeholder='Hi Santhosh, I have a project...' required className='border border-muted/50 w-full px-2 py-2 rounded-lg bg-background h-56 focus:outline-none focus:border-primary' />
                                 </div>
 
                                 <button type='submit' className='flex items-center justify-center gap-4 border text-primary border-primary p-3 rounded-xl bg-primary/10 cursor-pointer transition-all duration-300 hover:bg-primary hover:text-background hover:shadow-[0_0_7px_5px_var(--primary)/30]'>
@@ -112,6 +122,9 @@ const Contact = () => {
                                     <span className='text-lg font-bold'>Send Message</span>
                                 </button>
                             </div>
+                            <p className='text-center text-lg font-bold text-primary'>
+                                {result}
+                            </p>
                         </motion.form>
 
                     </div>
@@ -121,4 +134,4 @@ const Contact = () => {
     )
 }
 
-export default Contact
+export default Contact;
