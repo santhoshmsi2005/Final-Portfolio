@@ -29,9 +29,9 @@ const item = {
 
 const Skills = () => {
     return (
-        <div>
+        <div id="skills">
             <div className='max-w-full bg-background text-text pt-14 pb-10'>
-                <motion.div variants={container} initial="hidden" whileInView="visible" viewport={{once:true, amount: 0.3}} className='w-[95%] md:w-[96%] lg:w-[95%] mx-auto gap-16 '>
+                <motion.div variants={container} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} className='w-[95%] md:w-[96%] lg:w-[95%] mx-auto gap-16 '>
 
                     <motion.div variants={item} className='flex flex-col items-center justify-center gap-5'>
                         <motion.div>

@@ -22,7 +22,7 @@ const Education = () => {
     };
 
     return (
-        <div className="max-w-full bg-background text-text py-20">
+        <div id="experience" className="max-w-full bg-background text-text py-20">
             <motion.div variants={container} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }} className="w-[95%] md:w-[96%] lg:w-[95%] mx-auto min-h-screen">
 
                 {/* Heading */}
@@ -40,10 +40,10 @@ const Education = () => {
                     {/* Vertical Line */}
                     <div className="absolute left-6 top-0 bottom-0 -translate-x-1/2 h-full w-1 rounded-full bg-gradient-to-b from-primary via-secondary to-green-500"></div>
 
-                    <motion.div variants={container} initial="hidden" whileInView="visible" viewport={{once:true,amount:0.1}} className="flex flex-col gap-14">
+                    <motion.div variants={container} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }} className="flex flex-col gap-14">
 
                         {/* Timeline Item 1 */}
-                        <motion.div variants={fadeLeft(0.5,0.7)} className="relative flex items-start">
+                        <motion.div variants={fadeLeft(0.5, 0.7)} className="relative flex items-start">
 
                             {/* Dot */}
                             <div className="absolute left-6 top-12 -translate-x-1/2 w-5 h-5 rounded-full bg-primary border-4 border-background z-10 outline outline-primary"></div>
@@ -59,7 +59,7 @@ const Education = () => {
                         </motion.div>
 
                         {/* Timeline Item 2 */}
-                        <motion.div variants={fadeLeft(0.7,0.9)} className="relative flex items-start">
+                        <motion.div variants={fadeLeft(0.7, 0.9)} className="relative flex items-start">
 
                             <div className="absolute left-6 top-12 -translate-x-1/2 w-5 h-5 rounded-full bg-secondary border-4 border-background z-10 outline outline-secondary"></div>
 
@@ -72,7 +72,7 @@ const Education = () => {
                         </motion.div>
 
                         {/* Timeline Item 3 */}
-                        <motion.div variants={fadeLeft(0.9,1.1)} className="relative flex items-start">
+                        <motion.div variants={fadeLeft(0.9, 1.1)} className="relative flex items-start">
 
                             <div className="absolute left-6 top-12 -translate-x-1/2 w-5 h-5 rounded-full bg-green-500 border-4 border-background z-10 outline outline-green-500"></div>
 

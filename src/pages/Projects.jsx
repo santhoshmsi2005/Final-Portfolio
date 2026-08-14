@@ -11,7 +11,7 @@ const Projects = () => {
     const [selectedProject, setSelectedProject] = useState(null);
 
     const E_CommersSkills = [
-        "React", "Node.js", "MongoDB", "Express", "Prisma", "Tailwind Css", "JWT Auth", "REST API"
+        "React.js", "Node.js", "Express.js", "Prisma", "PostgreSQL", "JWT Auth", "Google OAuth", "REST API"
     ]
 
     const projects = [
@@ -19,7 +19,7 @@ const Projects = () => {
             image: Thumnail,
             title: "E-Commerce Platform",
             description:
-                "Full-stack shopping experience with authentication, cart management, product catalog and Stripe payment integration.",
+                "Full-stack e-commerce platform with product catalog, cart, secure checkout, JWT and Google OAuth authentication, deployed on Vercel and Render.",
             skills: E_CommersSkills,
             github: "https://github.com/santhoshmsi2005/E-commerce-Fullstack",
             LiveDemo: "https://e-commerce-fullstack-irsf.vercel.app",
@@ -27,15 +27,15 @@ const Projects = () => {
             image: ImgToPDF,
             title: "Img to PDF",
             description:
-                "Img to PDF converter is a web application that allows you to convert images to PDF.",
-            skills: ["HTML", "CSS", "JavaScript", "React", "jspdf", "react-dropzone", "react-hot-toast", "tailwindcss"],
+                "Client-side image-to-PDF converter built with React 19 and Vite. Files never leave the browser — fully private, responsive UI with toast feedback.",
+            skills: ["React 19", "Vite", "Tailwind CSS", "jsPDF", "react-hot-toast"],
             github: "https://github.com/santhoshmsi2005/Image-To-PDF",
             LiveDemo: "https://image-to-pdf-zeta-one.vercel.app/",
         }
     ]
 
     return (
-        <div>
+        <div id="projects">
             <div className='max-w-full bg-background text-text pt-10 pb-10'>
                 <motion.div variants={container} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.5 }} className='w-[95%] md:w-[96%] lg:w-[95%] mx-auto min-h-screen flex flex-col gap-14'>
                     <motion.div variants={fadeUp()} className='flex flex-col items-center justify-center gap-5'>

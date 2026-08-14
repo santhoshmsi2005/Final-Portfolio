@@ -14,7 +14,7 @@ const skills = ["React", "Node", "Express", "MongoDB", "Tailwind", "Redux", "JWT
 
 const App = () => {
     return (
-        <>
+        <div className="overflow-x-hidden w-full max-w-[100vw]">
             <Navebar />
             <HeroSection />
             <About />
@@ -23,9 +23,9 @@ const App = () => {
             <Education />
             <Contact />
             <Footer />
-        </>
+        </div>
     )
 }
 
 const ReactRoot = ReactDOM.createRoot(document.getElementById("root"))
-ReactRoot.render(<App/>)
+ReactRoot.render(<App />)

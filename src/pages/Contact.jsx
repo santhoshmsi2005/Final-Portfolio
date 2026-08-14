@@ -8,6 +8,7 @@ import { FaGithub } from "react-icons/fa";
 import { FiSend } from "react-icons/fi";
 import { motion } from 'framer-motion';
 import { fadeUp, fadeRight, fadeLeft, container } from '../components/animations/motionVariants';
+import { PROFILE } from '../constants/profile';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod'; // or 'zod/v4'
@@ -59,7 +60,7 @@ const Contact = () => {
 
     return (
         <div>
-            <div className='max-w-full bg-background text-text py-20'>
+            <div id="contact" className='max-w-full bg-background text-text py-20'>
                 <motion.div variants={container} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }} className='w-[95%] md:w-[96%] lg:w-[95%] mx-auto min-h-screen'>
 
                     {/* Heading */}
@@ -83,33 +84,33 @@ const Contact = () => {
 
                             <div>
                                 <motion.div variants={container} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} className='flex flex-col gap-3'>
-                                    <motion.div variants={fadeLeft(0.7, 0.9)} className='flex items-center gap-4 border border-muted/50 p-4 rounded-xl bg-surface hover:bg-primary/5 cursor-pointer transition-all duration-300 hover:border-primary'>
+                                    <motion.a href={`mailto:${PROFILE.email}`} variants={fadeLeft(0.7, 0.9)} className='flex items-center gap-4 border border-muted/50 p-4 rounded-xl bg-surface hover:bg-primary/5 cursor-pointer transition-all duration-300 hover:border-primary'>
                                         <div className='border p-2 rounded-lg bg-primary/20 text-primary border-primary'>
                                             <MdOutlineEmail />
                                         </div>
                                         <div>
                                             <p className='text-muted'>Email</p>
-                                            <p className='font-bold'>santhoshmsi2005@gmail.com</p>
+                                            <p className='font-bold'>{PROFILE.email}</p>
                                         </div>
-                                    </motion.div>
+                                    </motion.a>
 
-                                    <motion.div variants={fadeLeft(0.9, 1.1)} className='flex items-center gap-4 border border-muted/50 p-4 rounded-xl bg-surface hover:bg-primary/5 cursor-pointer transition-all duration-300 hover:border-primary'>
+                                    <motion.a href={`tel:${PROFILE.phone.replace(/\s/g, '')}`} variants={fadeLeft(0.9, 1.1)} className='flex items-center gap-4 border border-muted/50 p-4 rounded-xl bg-surface hover:bg-primary/5 cursor-pointer transition-all duration-300 hover:border-primary'>
                                         <div className='border p-2 rounded-lg bg-primary/20 text-primary border-primary'>
                                             <FaPhone />
                                         </div>
                                         <div>
                                             <p className='text-muted'>Phone</p>
-                                            <p className='font-bold'>+91 9876543210</p>
+                                            <p className='font-bold'>{PROFILE.phone}</p>
                                         </div>
-                                    </motion.div>
+                                    </motion.a>
 
-                                    <motion.div variants={fadeLeft(1.1, 1.3)} className='flex items-center gap-4 border border-muted/50 p-4 rounded-xl bg-surface hover:bg-primary/5 cursor-pointer transition-all duration-300 hover:border-primary'>
+                                    <motion.div variants={fadeLeft(1.1, 1.3)} className='flex items-center gap-4 border border-muted/50 p-4 rounded-xl bg-surface'>
                                         <div className='border p-2 rounded-lg bg-primary/20 text-primary border-primary'>
                                             <MdLocationOn />
                                         </div>
                                         <div>
                                             <p className='text-muted'>Location</p>
-                                            <p className='font-bold'>Trichy, Tamil Nadu, India</p>
+                                            <p className='font-bold'>{PROFILE.location}</p>
                                         </div>
                                     </motion.div>
 
@@ -117,15 +118,15 @@ const Contact = () => {
                             </div>
 
                             <div className='flex gap-5'>
-                                <motion.div variants={fadeLeft(1.3, 1.5)} className='border text-muted hover:text-primary border-muted/50 p-4 rounded-xl bg-surface hover:bg-primary/5 cursor-pointer transition-all duration-300 hover:border-primary text-xl'>
+                                <motion.a href={PROFILE.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub" variants={fadeLeft(1.3, 1.5)} className='border text-muted hover:text-primary border-muted/50 p-4 rounded-xl bg-surface hover:bg-primary/5 cursor-pointer transition-all duration-300 hover:border-primary text-xl'>
                                     <FaGithub />
-                                </motion.div>
-                                <motion.div variants={fadeLeft(1.5, 1.7)} className='border text-muted hover:text-primary border-muted/50 p-4 rounded-xl bg-surface hover:bg-primary/5 cursor-pointer transition-all duration-300 hover:border-primary text-xl'>
+                                </motion.a>
+                                <motion.a href={PROFILE.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" variants={fadeLeft(1.5, 1.7)} className='border text-muted hover:text-primary border-muted/50 p-4 rounded-xl bg-surface hover:bg-primary/5 cursor-pointer transition-all duration-300 hover:border-primary text-xl'>
                                     <FaLinkedin />
-                                </motion.div>
-                                <motion.div variants={fadeLeft(1.7, 1.9)} className='border text-muted hover:text-primary border-muted/50 p-4 rounded-xl bg-surface hover:bg-primary/5 cursor-pointer transition-all duration-300 hover:border-primary text-xl'>
+                                </motion.a>
+                                <motion.a href={`mailto:${PROFILE.email}`} aria-label="Email" variants={fadeLeft(1.7, 1.9)} className='border text-muted hover:text-primary border-muted/50 p-4 rounded-xl bg-surface hover:bg-primary/5 cursor-pointer transition-all duration-300 hover:border-primary text-xl'>
                                     <MdOutlineEmail />
-                                </motion.div>
+                                </motion.a>
                             </div>
                         </motion.div>
 
